@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center px-8 py-4 shadow bg-white">
-      <h1 className="text-2xl font-bold text-blue-600">LMSoftware</h1>
-      <div className="flex gap-6 text-gray-700 font-medium">
+    <nav className="flex justify-between items-center px-8 py-4 bg-secondary">
+      <h1 className="text-2xl font-bold text-white"> LMSoftware</h1>
+      <div className="flex gap-6 text-gray-200 font-medium">
         <Link to="/">Home</Link>
         <Link to="/services">Services</Link>
         <Link to="/why-choose-us">Why Choose Us</Link>

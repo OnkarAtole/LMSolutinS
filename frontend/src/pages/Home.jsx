@@ -34,21 +34,21 @@ function FAQItem({ item, index }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="bg-[#111827] border border-blue-500/10 rounded-xl overflow-hidden"
+      className="bg-white border border-gray-200 rounded-xl overflow-hidden"
     >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex justify-between items-center px-6 py-5
-                   text-left text-white font-medium hover:bg-blue-500/5"
+                   text-left text-gray-900 font-medium hover:bg-gray-50"
       >
         {item.q}
-        <span className="text-blue-500 text-xl">
+        <span className="text-blue-600 text-xl">
           {open ? "−" : "+"}
         </span>
       </button>
 
       {open && (
-        <div className="px-6 pb-5 text-gray-400 leading-relaxed">
+        <div className="px-6 pb-5 text-gray-600 leading-relaxed">
           {item.a}
         </div>
       )}
@@ -59,129 +59,150 @@ function FAQItem({ item, index }) {
 /* ================= HOME PAGE ================= */
 export default function Home() {
   return (
-    <section className="bg-[#0B1120] text-gray-200">
+    <>
 
-      {/* ================= HERO ================= */}
-      <div className="max-w-7xl mx-auto px-6 pt-28 pb-24 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold text-white leading-tight"
-        >
-          Engineering <span className="text-blue-500">Digital Solutions</span><br />
-          That Scale With Your Business
-        </motion.h1>
+      {/* ================= HERO (VIDEO BACKGROUND) ================= */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mt-6 text-gray-400 max-w-3xl mx-auto text-lg"
+        {/* 🎥 Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
         >
-          LM Software Solutions delivers secure, scalable, and high-performance
-          software solutions using modern technologies.
-        </motion.p>
+          <source src="\public\animation.mp4" type="video/mp4" />
+        </video>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <a
-            href="/about"
-            className="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-700
-                       text-white font-medium transition-all shadow-lg shadow-blue-600/30"
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-[#0B1120]/80"></div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-6xl font-bold text-white leading-tight"
           >
-            Get Started
-          </a>
-          <a
-            href="/why-choose-us"
-            className="px-8 py-4 rounded-full border border-blue-500/40
-                       text-blue-400 hover:bg-blue-500/10 transition-all"
+            Engineering <span className="text-blue-500">Digital Solutions</span>
+            <br />
+            That Scale With Your Business
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-6 text-gray-300 max-w-3xl mx-auto text-lg"
           >
-            Why Choose Us
-          </a>
-        </motion.div>
-      </div>
+            LM Software Solutions delivers secure, scalable, and high-performance
+            software solutions using modern technologies.
+          </motion.p>
 
-      {/* ================= SERVICES ================= */}
-      <div className="max-w-7xl mx-auto px-6 pb-28">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Our Core Services
-          </h2>
-          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-            End-to-end technology services designed for growth.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            "Web Development",
-            "Mobile Applications",
-            "Cloud & DevOps",
-            "AI & Automation",
-          ].map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-[#111827] rounded-2xl p-8 border border-blue-500/10
-                         hover:border-cyan-400/40 transition-all
-                         hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <a
+              href="/about"
+              className="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-700
+                         text-white font-medium transition-all shadow-lg shadow-blue-600/30"
             >
-              <h3 className="text-xl font-semibold text-white mb-3">
-                {service}
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Secure, scalable, and future-ready solutions.
-              </p>
-            </motion.div>
-          ))}
+              Get Started
+            </a>
+            <a
+              href="/why-choose-us"
+              className="px-8 py-4 rounded-full border border-blue-500/40
+                         text-blue-400 hover:bg-blue-500/10 transition-all"
+            >
+              Why Choose Us
+            </a>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
-      {/* ================= PROCESS ================= */}
-      <div className="bg-[#111827] py-24">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16">
-            Our Development Process
-          </h2>
+      {/* ================= SERVICES (LIGHT SECTION) ================= */}
+      <section className="bg-[#F8FAFC] py-28">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Our Core Services
+            </h2>
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+              End-to-end technology services designed for growth.
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              "Requirement Analysis",
-              "Design & Architecture",
-              "Development & Testing",
-              "Deployment & Support",
-            ].map((step, i) => (
-              <div key={i}>
-                <div className="text-blue-500 text-3xl font-bold mb-4">
-                  {i + 1}
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-2">
-                  {step}
-                </h4>
-                <p className="text-gray-400 text-sm">
-                  Structured, transparent, and efficient execution.
+              "Web Development",
+              "Mobile Applications",
+              "Cloud & DevOps",
+              "AI & Automation",
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-2xl p-8 shadow-sm
+                           hover:shadow-md transition-all"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {service}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Secure, scalable, and future-ready solutions.
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* ================= FAQ ================= */}
-      <div className="py-24">
+      {/* ================= PROCESS (LIGHT – UNIFORM) ================= */}
+<section className="bg-[#F8FAFC] py-24">
+  <div className="max-w-7xl mx-auto px-6 text-center">
+    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-16">
+      Our Development Process
+    </h2>
+
+    <div className="grid md:grid-cols-4 gap-8">
+      {[
+        "Requirement Analysis",
+        "Design & Architecture",
+        "Development & Testing",
+        "Deployment & Support",
+      ].map((step, i) => (
+        <div key={i} className="bg-white rounded-xl p-8 shadow-sm">
+          <div className="text-blue-600 text-3xl font-bold mb-4">
+            {i + 1}
+          </div>
+          <h4 className="text-lg font-semibold text-gray-900 mb-2">
+            {step}
+          </h4>
+          <p className="text-gray-600 text-sm">
+            Structured, transparent, and efficient execution.
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+      {/* ================= FAQ (LIGHT) ================= */}
+      <section className="bg-[#F8FAFC] py-24">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               Frequently Asked Questions
             </h2>
-            <p className="mt-4 text-gray-400">
+            <p className="mt-4 text-gray-600">
               Everything you need to know before working with us.
             </p>
           </div>
@@ -192,11 +213,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* ================= CTA ================= */}
-      <div className="max-w-7xl mx-auto px-6 py-28 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white">
+      {/* ================= CTA (DARK) ================= */}
+<section className="bg-[#F8FAFC] py-28 text-center text-gray-700">
+        <h2 className="text-3xl md:text-4xl font-bold text-black">
           Ready to Build Something Powerful?
         </h2>
         <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
@@ -211,8 +232,8 @@ export default function Home() {
         >
           Contact Us
         </a>
-      </div>
+      </section>
 
-    </section>
+    </>
   );
 }
