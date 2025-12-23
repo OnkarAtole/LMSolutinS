@@ -1,21 +1,5 @@
-import Hero from "../components/Hero";
-
-
-export default function Home() {
-  return (
-    <main>
-      <Hero />
-
-      <section className="py-20 px-8 text-center">
-        <h3 className="text-3xl font-bold mb-6">Our Services</h3>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="p-6 bg-white shadow rounded-lg">
-            <h4 className="font-semibold text-xl mb-3">Cloud Solutions</h4>
-            <p className="text-gray-600">Secure, scalable cloud engineering and deployments.</p>
-          </div>
-          <div className="p-6 bg-white shadow rounded-lg">
-            <h4 className="font-semibold text-xl mb-3">Web Development</h4>
-            <p className="text-gray-600">Modern web apps tailored to business needs.</p>
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 /* ================= FAQ DATA ================= */
 const faqs = [
@@ -58,15 +42,11 @@ function FAQItem({ item, index }) {
                    text-left text-gray-900 font-medium hover:bg-gray-50"
       >
         {item.q}
-        <span className="text-blue-600 text-xl">
-          {open ? "−" : "+"}
-        </span>
+        <span className="text-blue-600 text-xl">{open ? "−" : "+"}</span>
       </button>
 
       {open && (
-        <div className="px-6 pb-5 text-gray-600 leading-relaxed">
-          {item.a}
-        </div>
+        <div className="px-6 pb-5 text-gray-600 leading-relaxed">{item.a}</div>
       )}
     </motion.div>
   );
@@ -76,10 +56,8 @@ function FAQItem({ item, index }) {
 export default function Home() {
   return (
     <>
-
       {/* ================= HERO (VIDEO BACKGROUND) ================= */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-
         {/* 🎥 Background Video */}
         <video
           autoPlay
@@ -113,8 +91,8 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="mt-6 text-gray-300 max-w-3xl mx-auto text-lg"
           >
-            LM Software Solutions delivers secure, scalable, and high-performance
-            software solutions using modern technologies.
+            LM Software Solutions delivers secure, scalable, and
+            high-performance software solutions using modern technologies.
           </motion.p>
 
           <motion.div
@@ -181,35 +159,34 @@ export default function Home() {
       </section>
 
       {/* ================= PROCESS (LIGHT – UNIFORM) ================= */}
-<section className="bg-[#F8FAFC] py-24">
-  <div className="max-w-7xl mx-auto px-6 text-center">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-16">
-      Our Development Process
-    </h2>
+      <section className="bg-[#F8FAFC] py-24">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-16">
+            Our Development Process
+          </h2>
 
-    <div className="grid md:grid-cols-4 gap-8">
-      {[
-        "Requirement Analysis",
-        "Design & Architecture",
-        "Development & Testing",
-        "Deployment & Support",
-      ].map((step, i) => (
-        <div key={i} className="bg-white rounded-xl p-8 shadow-sm">
-          <div className="text-blue-600 text-3xl font-bold mb-4">
-            {i + 1}
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              "Requirement Analysis",
+              "Design & Architecture",
+              "Development & Testing",
+              "Deployment & Support",
+            ].map((step, i) => (
+              <div key={i} className="bg-white rounded-xl p-8 shadow-sm">
+                <div className="text-blue-600 text-3xl font-bold mb-4">
+                  {i + 1}
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                  {step}
+                </h4>
+                <p className="text-gray-600 text-sm">
+                  Structured, transparent, and efficient execution.
+                </p>
+              </div>
+            ))}
           </div>
-          <h4 className="text-lg font-semibold text-gray-900 mb-2">
-            {step}
-          </h4>
-          <p className="text-gray-600 text-sm">
-            Structured, transparent, and efficient execution.
-          </p>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* ================= FAQ (LIGHT) ================= */}
       <section className="bg-[#F8FAFC] py-24">
@@ -221,20 +198,18 @@ export default function Home() {
             <p className="mt-4 text-gray-600">
               Everything you need to know before working with us.
             </p>
-
           </div>
-          <div className="p-6 bg-white shadow rounded-lg">
-            <h4 className="font-semibold text-xl mb-3">App Development</h4>
-            <p className="text-gray-600">Cross-platform or native solutions for enterprises.</p>
+
+          <div className="space-y-4">
+            {faqs.map((item, index) => (
+              <FAQItem key={index} item={item} index={index} />
+            ))}
           </div>
         </div>
       </section>
 
-    </main>
-
-
       {/* ================= CTA (DARK) ================= */}
-<section className="bg-[#F8FAFC] py-28 text-center text-gray-700">
+      <section className="bg-[#F8FAFC] py-28 text-center text-gray-700">
         <h2 className="text-3xl md:text-4xl font-bold text-black">
           Ready to Build Something Powerful?
         </h2>
@@ -251,8 +226,6 @@ export default function Home() {
           Contact Us
         </a>
       </section>
-
     </>
-
   );
 }
