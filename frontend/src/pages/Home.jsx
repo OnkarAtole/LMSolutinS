@@ -42,23 +42,11 @@ function FAQItem({ item, index }) {
                    text-left text-gray-900 font-medium hover:bg-gray-50"
       >
         {item.q}
-
-        <span className="text-blue-600 text-xl">
-          {open ? "−" : "+"}
-        </span>
-      </button>
-
-      {open && (
-        <div className="px-6 pb-5 text-gray-600 leading-relaxed">
-          {item.a}
-        </div>
-
         <span className="text-blue-600 text-xl">{open ? "−" : "+"}</span>
       </button>
 
       {open && (
         <div className="px-6 pb-5 text-gray-600 leading-relaxed">{item.a}</div>
-
       )}
     </motion.div>
   );
@@ -68,14 +56,8 @@ function FAQItem({ item, index }) {
 export default function Home() {
   return (
     <>
-
-
       {/* ================= HERO (VIDEO BACKGROUND) ================= */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-
-      {/* ================= HERO (VIDEO BACKGROUND) ================= */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-
         {/* 🎥 Background Video */}
         <video
           autoPlay
@@ -109,13 +91,8 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="mt-6 text-gray-300 max-w-3xl mx-auto text-lg"
           >
-
-            LM Software Solutions delivers secure, scalable, and high-performance
-            software solutions using modern technologies.
-
             LM Software Solutions delivers secure, scalable, and
             high-performance software solutions using modern technologies.
-
           </motion.p>
 
           <motion.div
@@ -152,7 +129,6 @@ export default function Home() {
             <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
               End-to-end technology services designed for growth.
             </p>
-
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -183,73 +159,6 @@ export default function Home() {
       </section>
 
       {/* ================= PROCESS (LIGHT – UNIFORM & DYNAMIC) ================= */}
-<section className="bg-[#F8FAFC] py-24">
-  <div className="max-w-7xl mx-auto px-6 text-center">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-16">
-      Our Development Process
-    </h2>
-
-    <div className="grid md:grid-cols-4 gap-8">
-      {[
-        "Requirement Analysis",
-        "Design & Architecture",
-        "Development & Testing",
-        "Deployment & Support",
-      ].map((step, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.15, duration: 0.6 }}
-          className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div className="text-blue-600 text-3xl font-bold mb-4">
-            {i + 1}
-          </div>
-          <h4 className="text-lg font-semibold text-gray-900 mb-2">
-            {step}
-          </h4>
-          <p className="text-gray-600 text-sm">
-            Structured, transparent, and efficient execution.
-          </p>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              "Web Development",
-              "Mobile Applications",
-              "Cloud & DevOps",
-              "AI & Automation",
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm
-                           hover:shadow-md transition-all"
-              >
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {service}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Secure, scalable, and future-ready solutions.
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================= PROCESS (LIGHT – UNIFORM) ================= */}
       <section className="bg-[#F8FAFC] py-24">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-16">
@@ -263,7 +172,14 @@ export default function Home() {
               "Development & Testing",
               "Deployment & Support",
             ].map((step, i) => (
-              <div key={i} className="bg-white rounded-xl p-8 shadow-sm">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.6 }}
+                className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow"
+              >
                 <div className="text-blue-600 text-3xl font-bold mb-4">
                   {i + 1}
                 </div>
@@ -273,12 +189,11 @@ export default function Home() {
                 <p className="text-gray-600 text-sm">
                   Structured, transparent, and efficient execution.
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
-
 
       {/* ================= FAQ (LIGHT) ================= */}
       <section className="bg-[#F8FAFC] py-24">
@@ -301,11 +216,7 @@ export default function Home() {
       </section>
 
       {/* ================= CTA (DARK) ================= */}
-
-<section className="bg-[#F8FAFC] py-28 text-center text-gray-700">
-
       <section className="bg-[#F8FAFC] py-28 text-center text-gray-700">
-
         <h2 className="text-3xl md:text-4xl font-bold text-black">
           Ready to Build Something Powerful?
         </h2>
@@ -322,7 +233,6 @@ export default function Home() {
           Contact Us
         </a>
       </section>
-
     </>
   );
 }
