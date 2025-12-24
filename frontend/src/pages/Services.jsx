@@ -88,7 +88,7 @@ export default function Services() {
 
             <div className="mt-8">
               <Link
-                to="/contact"
+                to="/about"
                 className="px-8 py-3 rounded-full bg-blue-600
                      hover:bg-blue-700 text-white font-medium
                      transition-all shadow-lg shadow-blue-600/30"

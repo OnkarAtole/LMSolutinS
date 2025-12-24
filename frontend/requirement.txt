@@ -30,3 +30,6 @@ Axios
 # Code Quality (Optional)
 ESLint
 Prettier
+
+#icons
+react-icons
