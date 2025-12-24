@@ -136,6 +136,25 @@ import BlogCard from "../components/insights/BlogCard";
 import EventCard from "../components/insights/EventCard";
 import TrendCard from "../components/insights/TrendCard";
 
+// const blogs = [
+//   {
+//     slug: "clean-architecture-modern-web",
+//     title: "Clean Architecture in Modern Web Apps",
+//     description: "How we design scalable frontend and backend systems.",
+//     category: "Engineering",
+//     date: "Aug 2025",
+//     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+//   },
+//   {
+//     slug: "choosing-right-backend-startups",
+//     title: "Choosing the Right Backend for Startups",
+//     description: "FastAPI vs Node.js vs Django.",
+//     category: "Backend",
+//     date: "Jul 2025",
+//     image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+//   },
+// ];
+
 const blogs = [
   {
     slug: "clean-architecture-modern-web",
@@ -153,7 +172,17 @@ const blogs = [
     date: "Jul 2025",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
   },
+  {
+    slug: "building-platform-fastapi-react",
+    title: "Building a Scalable Platform with FastAPI & React",
+    description:
+      "Architecture, tech choices, and lessons learned while designing a modern platform.",
+    category: "Full Stack",
+    date: "Sep 2025",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+  },
 ];
+
 
 const events = [
   {
@@ -164,7 +193,7 @@ const events = [
   },
 ];
 
-const trends = ["React", "FastAPI", "AWS", "DevOps", "AI"];
+const trends = ["React", "FastAPI", "AWS", "DevOps", "AI","DevOps"];
 
 export default function InsightsPage() {
   return (
