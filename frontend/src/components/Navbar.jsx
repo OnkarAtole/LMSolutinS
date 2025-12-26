@@ -7,7 +7,6 @@ export default function Navbar() {
   const navLinkClass = ({ isActive }) =>
     `
     relative pb-1 block
-
     after:content-['']
     after:absolute after:left-0 after:-bottom-1
     after:h-[2px]

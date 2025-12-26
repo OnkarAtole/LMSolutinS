@@ -13,9 +13,10 @@ class CareerApplication(BaseModel):
     experience_level: str
 
 class JobApplication(BaseModel):
-    job_id: str
     name: str
     email: EmailStr
     experience: str
     linkedin: Optional[str] = None
+    job_id: str
     resume_path: str
+    

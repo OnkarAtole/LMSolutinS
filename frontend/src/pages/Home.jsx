@@ -196,7 +196,7 @@ export default function Home() {
       </section>
 
       {/* ================= SERVICES (ENHANCED WITH IMAGES) ================= */}
-      <section className="bg-[#F8FAFC] py-28">
+      <section className="bg-[#F8FAFC] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -257,17 +257,18 @@ export default function Home() {
       </section>
 
       {/* ================= PROCESS (HORIZONTAL TIMELINE – MOTION FIXED) ================= */}
-<section className="bg-[#F8FAFC] py-32">
+<section className="bg-[#F8FAFC] py-16">
   <div className="max-w-7xl mx-auto px-6">
-    <div className="text-center mb-24">
-  <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-    Our Development Process
-  </h2>
-  <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-    A structured, transparent, and scalable approach to building reliable digital products.
-  </p>
-</div>
 
+    {/* Heading */}
+    <div className="text-center mb-24">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        Our Development Process
+      </h2>
+      <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        A structured, transparent, and scalable approach to building reliable digital products.
+      </p>
+    </div>
 
     <div className="relative">
 
@@ -283,9 +284,9 @@ export default function Home() {
         transition={{ duration: 2.5, ease: "easeInOut" }}
       />
 
-      {/* GRID + STAGGER CONTROLLER */}
+      {/* GRID */}
       <motion.div
-        className="grid grid-cols-4 grid-rows-[auto_60px_auto] gap-x-10 relative z-10"
+        className="grid grid-cols-4 grid-rows-[auto_32px_auto] gap-x-10 relative z-10"
         variants={timelineContainerVariants}
         initial="hidden"
         whileInView="visible"
@@ -306,11 +307,13 @@ export default function Home() {
                   isTop ? "row-start-1" : "row-start-3"
                 } flex justify-center`}
               >
-                <div className="bg-white w-full rounded-2xl shadow-md hover:shadow-xl transition-all hover:ring-2 hover:ring-blue-500/30">
+                <div className="bg-white w-xs rounded-2xl shadow-md
+                                hover:shadow-xl transition-all
+                                hover:ring-2 hover:ring-blue-500/30">
                   <img
                     src={step.image}
                     alt={step.title}
-                    className="w-full h-40 object-cover rounded-t-2xl"
+                    className="w-full h-32 object-cover rounded-t-2xl"
                   />
                   <div className="p-6 text-center">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -338,10 +341,9 @@ export default function Home() {
   </div>
 </section>
 
-
       {/* ================= FAQ ================= */ }
       {/* ================= FAQ ================= */}
-<section className="bg-[#F8FAFC] py-28">
+<section className="bg-[#F8FAFC] py-10">
   <div className="max-w-5xl mx-auto px-6">
     
     {/* Heading */}

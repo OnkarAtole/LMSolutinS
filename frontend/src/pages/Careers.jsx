@@ -207,7 +207,7 @@ const Careers = () => {
 
       {/* WHY WORK WITH US */}
       <motion.section
-        className="max-w-6xl mx-auto px-6 py-24"
+        className="max-w-6xl mx-auto px-6 py-16"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
@@ -288,7 +288,7 @@ const Careers = () => {
 
       {/* OPEN POSITIONS */}
       <motion.section
-        className="max-w-6xl mx-auto px-6 py-24"
+        className="max-w-6xl mx-auto px-6 py-10"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -412,7 +412,7 @@ const Careers = () => {
 
       {/* ROLE NOT AVAILABLE / NOTIFY SECTION */}
       <motion.section
-        className="max-w-6xl mx-auto px-6 py-32"
+        className="max-w-6xl mx-auto px-6 py-16"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

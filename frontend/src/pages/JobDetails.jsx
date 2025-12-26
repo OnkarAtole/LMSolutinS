@@ -78,6 +78,9 @@ const JobDetails = () => {
     resume: null,
   });
 
+const [loading, setLoading] = useState(false);
+const [submitError, setSubmitError] = useState("");
+
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -110,10 +113,15 @@ const JobDetails = () => {
     return Object.keys(newErrors).length === 0;
   };
 
- const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
 
+  setSubmitError("");
+  setSubmitted(false);
+
   if (!validate()) return;
+
+  setLoading(true);
 
   try {
     const formDataToSend = new FormData();
@@ -125,15 +133,18 @@ const JobDetails = () => {
     formDataToSend.append("linkedin", formData.linkedin);
     formDataToSend.append("resume", formData.resume);
 
-    const response = await axios.post(
+    await axios.post(
       "http://127.0.0.1:8000/jobs/apply",
-      formDataToSend
+      formDataToSend,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
     );
 
-    console.log("Backend response:", response.data);
     setSubmitted(true);
 
-    // reset form
     setFormData({
       name: "",
       email: "",
@@ -143,13 +154,14 @@ const JobDetails = () => {
     });
 
   } catch (error) {
-    console.error(
-      "Submit error:",
-      error.response?.data || error.message
+    setSubmitError(
+      error.response?.data?.detail || "Failed to submit application"
     );
-    alert("Failed to submit application");
+  } finally {
+    setLoading(false);
   }
 };
+
 
 
   if (!job) {
@@ -291,14 +303,21 @@ const JobDetails = () => {
       <p className="text-red-500 text-sm">{errors.resume}</p>
     )}
 
-    <motion.button
-      whileHover={{ scale: 1.04 }}
-      whileTap={{ scale: 0.96 }}
-      type="submit"
-      className="w-full  bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 rounded-lg font-medium shadow-md hover:shadow-xl transition"
-    >
-      Apply
-    </motion.button>
+<motion.button
+  whileHover={{ scale: 1.04 }}
+  whileTap={{ scale: 0.96 }}
+  type="submit"
+  disabled={loading}
+  className="
+    w-full bg-gradient-to-r from-blue-600 to-indigo-600
+    text-white py-2 rounded-lg font-medium
+    shadow-md hover:shadow-xl transition
+    disabled:opacity-50 disabled:cursor-not-allowed
+  "
+>
+  {loading ? "Submitting..." : "Apply"}
+</motion.button>
+
 
     {submitted && (
       <p className="text-green-600 text-sm text-center mt-3">

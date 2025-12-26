@@ -1,4 +1,8 @@
-from fastapi import APIRouter, HTTPException, UploadFile, File, Form
+from fastapi import APIRouter, HTTPException
+from models import ContactMessage
+from database import contact_collection
+from models import CareerApplication
+from database import career_collection
 from datetime import datetime
 import os, shutil, uuid
 
@@ -8,6 +12,15 @@ from database import (
     career_collection,
     job_applications
 )
+
+
+
+
+from fastapi import UploadFile, File, Form
+from database import job_applications
+import os
+import shutil
+import uuid
 
 router = APIRouter()
 
